@@ -9,6 +9,7 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { PageLayout } from "~/components/layout";
 import { PostView } from "~/components/postview";
+import Link from "next/link";
 
 const CreatePostWizard = () => {
   const { user } = useUser();
@@ -87,7 +88,7 @@ const Feed = () => {
   if (!data) return <div>Something went wrong</div>;
 
   return (
-    <div className="flex grow flex-col overflow-y-scroll">
+    <div className="flex grow  rounded-sm pt-2 my-2 bg-[#0000003b] border-2 border-[#0bff99a6] flex-col overflow-y-scroll">
       {[...data].map((fullPost) => (
         <PostView {...fullPost} key={fullPost.post.id} />
       ))}
@@ -106,9 +107,10 @@ const Home: NextPage = () => {
 
   return (
     <PageLayout>
-      <div className="flex border-b border-slate-400 p-4">
+      <div className="flex border-b border-x rounded-md border-slate-400 p-4 justify-around font-extrabold font-mono">
+        <Link href={`/`}><div className="kiuru-title hover:text-lg rounded-md py-1 px-2 cursor-pointer ">kiuru</div></Link>
         {!isSignedIn && (
-          <div className="flex justify-center">
+          <div className="flex hover:border-b-2 hover:border-[#0bff99] rounded-md px-2 justify-center">
             <SignInButton />
           </div>
         )}

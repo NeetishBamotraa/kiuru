@@ -2,8 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-black text-slate-100;
+@keyframes kiuru {
+  0% {
+    box-shadow: 0 0 8px #0bff99;
+  }
+  50% {
+    box-shadow: 0 0 2px #0bff99;
+  }
+  100% {
+    box-shadow: 0 0 8px #0bff99;
+  }
+}
 
-  overscroll-behavior: none;
+
+.kiuru-title:hover {
+  animation: kiuru 1s ease-in-out infinite;
 }
